@@ -44,15 +44,15 @@ select(NHANES, ends_with("Day"))
 select(NHANES, contains("Age"))
 
 nhanes_small <- select(
-    NHANES,
-    Age,
-    Gender,
-    BMI,
-    Diabetes,
-    PhysActive,
-    BPSysAve,
-    BPDiaAve,
-    Education
+  NHANES,
+  Age,
+  Gender,
+  BMI,
+  Diabetes,
+  PhysActive,
+  BPSysAve,
+  BPDiaAve,
+  Education
 )
 
 nhanes_small
@@ -61,13 +61,13 @@ nhanes_small
 # Fixing variables names --------------------------------------------------
 
 nhanes_small <- rename_with(
-    nhanes_small,
-    snakecase::to_snake_case
+  nhanes_small,
+  snakecase::to_snake_case
 )
 
 nhanes_small <- rename(
-    nhanes_small,
-    sex = gender
+  nhanes_small,
+  sex = gender
 )
 
 
@@ -76,9 +76,33 @@ nhanes_small <- rename(
 colnames(nhanes_small)
 
 nhanes_small %>%
-    colnames()
+  colnames()
 nhanes_small %>%
-    select(phys_active) %>%
-    rename(physically_active = phys_active
-    )
+  select(phys_active) %>%
+  rename(physically_active = phys_active)
 
+nhanes_small %>%
+  select(bp_sys_ave, education)
+
+nhanes_small %>%
+  rename(
+    bp_sys = bp_sys_ave,
+    bp_dia = bp_dia_ave
+  )
+
+select(nhanes_small, bmi, contains("age"))
+
+nhanes_small %>%
+  select(bmi, contains("age"))
+
+blood_pressure <- select(nhanes_small, starts_with("bp_"))
+rename(blood_pressure, bp_systolic = bp_sys)
+
+nhanes_small %>%
+  select(starts_with("bP_")) %>%
+  rename(bp_systolic = bp_sys_ave)
+
+
+
+
+# Filtering rows ----------------------------------------------------------
