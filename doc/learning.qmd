@@ -10,6 +10,27 @@ library(tidyverse)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
 
+1. Elin Blick
+2. Department of Life Sciences
+3. Division of Industrial Biotechnology
+
+# Intro
+This *is* the **introduction**.
+
+# Methods and Results
+This is *the* **methods and results** section.
+
+## Analysis
+Here *will* I do the **analysis**.
+
+# Discussion
+This *is* the **discussion** section.
+
+```{r}
+2 + 2
+```
+
+
 ## Table of results
 
 ```{r mean-age-bmi-table}
